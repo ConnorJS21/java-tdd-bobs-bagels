@@ -34,4 +34,18 @@ public class Basket {
     public void setBasketLimit(int basketLimit) {
         this.basketLimit = basketLimit;
     }
+
+    public void removeBagel(String bagelName, int quantity){
+        if(!basketItems.containsKey(bagelName)){
+            System.out.println("This bagel isn't in your basket.");
+        }
+        else{
+            if(basketItems.get(bagelName) <= quantity){
+                basketItems.remove(bagelName);
+            }else{
+                int newQuantity = basketItems.get(bagelName) - quantity;
+                basketItems.put(bagelName, newQuantity );
+            }
+        }
+    }
 }

@@ -11,14 +11,14 @@ class BasketTest {
     @Test
     public void testAddBagel(){
         Basket basket = new Basket();
-         basket.addBagel("Poppy Seed", 5);
-         basket.addBagel("Cinnamon",  12);
+         basket.addBagel("Poppy Seed", 2);
+         basket.addBagel("Cinnamon",  3);
          basket.addBagel("Honey",  4);
          basket.addBagel("Cheese",  5);
          basket.addBagel("Garlic",  6);
         Map<String, Integer> expectedMap = new HashMap<>();
-        expectedMap.put("Poppy Seed", 5);
-        expectedMap.put("Cinnamon",  12);
+        expectedMap.put("Poppy Seed", 2);
+        expectedMap.put("Cinnamon",  3);
         expectedMap.put("Honey",  4);
         expectedMap.put("Cheese",  5);
         expectedMap.put("Garlic",  6);
@@ -37,8 +37,11 @@ class BasketTest {
         Basket basket = new Basket();
         basket.addBagel("Poppy Seed", 5);
         basket.removeBagel("Poppy Seed", 5);
-        Assertions.assertEquals(basket.containsKey("Poppy Seed"), false);
-
+        Assertions.assertEquals(basket.basketItems.containsKey("Poppy Seed"), false);
+        basket.addBagel("Poppy Seed", 5);
+        basket.removeBagel("Poppy Seed", 3);
+        Assertions.assertEquals(basket.basketItems.containsKey("Poppy Seed"), true);
+        Assertions.assertEquals(basket.basketItems.get("Poppy Seed"), 2);
     }
 
 }
