@@ -24,4 +24,12 @@ class BasketTest {
         expectedMap.put("Garlic",  6);
         Assertions.assertEquals(expectedMap, basket.basketItems);
     }
+    @Test
+    public void testExceededBasketLimit(){
+        Basket basket = new Basket();
+        Assertions.assertEquals(basket.exceededBasketLimit(3, 5), true);
+        Assertions.assertEquals(basket.exceededBasketLimit(10, 7), false);
+
+
+    }
 }
