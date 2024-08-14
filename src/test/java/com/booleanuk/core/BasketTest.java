@@ -27,8 +27,10 @@ class BasketTest {
     @Test
     public void testExceededBasketLimit(){
         Basket basket = new Basket();
-        Assertions.assertEquals(basket.exceededBasketLimit(3, 5), true);
-        Assertions.assertEquals(basket.exceededBasketLimit(10, 7), false);
+        basket.setBasketLimit(3);
+        Assertions.assertEquals(basket.exceededBasketLimit(basket.getBasketLimit(), 5), true);
+        basket.setBasketLimit(10);
+        Assertions.assertEquals(basket.exceededBasketLimit(basket.getBasketLimit(), 7), false);
 
 
     }
