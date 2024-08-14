@@ -31,7 +31,14 @@ class BasketTest {
         Assertions.assertEquals(basket.exceededBasketLimit(basket.getBasketLimit(), 5), true);
         basket.setBasketLimit(10);
         Assertions.assertEquals(basket.exceededBasketLimit(basket.getBasketLimit(), 7), false);
-
+    }
+    @Test
+    public void testRemoveBagel(){
+        Basket basket = new Basket();
+        basket.addBagel("Poppy Seed", 5);
+        basket.removeBagel("Poppy Seed", 5);
+        Assertions.assertEquals(basket.containsKey("Poppy Seed"), false);
 
     }
+
 }
